@@ -16,6 +16,14 @@ Tracked information:
 - Model artifact
 - Metrics JSON
 
+Workspace
+  └── Experiment: customer-churn-classification
+        ├── Run 1: Logistic Regression
+        ├── Run 2: Random Forest
+        ├── Run 3: Random Forest (different depth)
+        ├── Run 4: Gradient Boosting
+        └── Run 5: Gradient Boosting (different learning rate)
+
 Best run by F1:
 [run name]
 

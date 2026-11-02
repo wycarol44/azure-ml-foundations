@@ -1,12 +1,28 @@
+import os
+
 from azure.ai.ml import MLClient, command
 from azure.ai.ml.entities import Environment
 from azure.identity import DefaultAzureCredential
+from dotenv import load_dotenv
+
+load_dotenv()
+
+subscription_id = (
+    os.getenv("AZURE_SUBSCRIPTION_ID")
+    or os.getenv("SUBSCRIPTION_ID")
+)
+
+if not subscription_id:
+    raise ValueError(
+        "Missing Azure subscription ID. Set AZURE_SUBSCRIPTION_ID or SUBSCRIPTION_ID "
+        "before running this script."
+    )
 
 ml_client = MLClient(
     DefaultAzureCredential(),
-    subscription_id="<SUBSCRIPTION_ID>",
-    resource_group_name="rg-aml-foundations",
-    workspace_name="aml-foundations-ws"
+    subscription_id=subscription_id,
+    resource_group_name=os.getenv("AZURE_RESOURCE_GROUP", "rg-aml-foundations"),
+    workspace_name=os.getenv("AZURE_ML_WORKSPACE", "aml-foundations-ws")
 )
 
 configs = [

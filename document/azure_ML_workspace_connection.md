@@ -18,27 +18,41 @@ az account show --query id --output tsv
 
 ### 2. Configure the MLClient
 
-Install the required packages:
+Set the workspace values in a root `.env` file (the repository ignores this file):
 
-```bash
-pip install azure-ai-ml azure-identity
+```dotenv
+AZURE_SUBSCRIPTION_ID=<your-subscription-id>
+AZURE_RESOURCE_GROUP=rg-aml-foundations
+AZURE_ML_WORKSPACE=aml-foundations-ws
 ```
 
-Connect to your Azure ML workspace:
+Install the project dependencies, including `python-dotenv`, so the submission
+script can load these values:
+
+```bash
+pip install -r requirements.txt
+```
+
+The submission script reads these values from `.env`:
 
 ```python
+import os
+
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
+from dotenv import load_dotenv
+
+load_dotenv()
 
 ml_client = MLClient(
     DefaultAzureCredential(),
-    subscription_id="<SUBSCRIPTION_ID>",
-    resource_group_name="rg-aml-foundations",
-    workspace_name="aml-foundations-ws"
+    subscription_id=os.getenv("AZURE_SUBSCRIPTION_ID"),
+    resource_group_name=os.getenv("AZURE_RESOURCE_GROUP"),
+    workspace_name=os.getenv("AZURE_ML_WORKSPACE")
 )
 ```
 
-Replace `<SUBSCRIPTION_ID>` with your actual Azure Subscription ID.
+Replace `<your-subscription-id>` in `.env` with your actual Azure Subscription ID.
 
 ### 3. Authenticate and Verify the Connection
 
