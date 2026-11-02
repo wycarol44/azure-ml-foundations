@@ -1,0 +1,7 @@
+
+numpy
+pandas
+scikit-learn
+mlflow
+azure-ai-ml
+azure-identity
