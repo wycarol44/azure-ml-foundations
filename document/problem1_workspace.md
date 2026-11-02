@@ -6,9 +6,9 @@ Region: East US
 Subscription: [your subscription]
 
 Associated resources:
-- Storage account:
-- Key Vault:
-- Application Insights:
+- Storage account: amlfoundations7716083272
+- Key Vault: amlfoundations8560120597
+- Application Insights: amlfoundations0112830974
 - Container Registry:
 
 ## Workspace role

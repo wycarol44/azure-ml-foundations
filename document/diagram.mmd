@@ -1,0 +1,11 @@
+
+flowchart TD
+    A["Public Telco CSV"] --> B["Data Asset v1"]
+    B --> C["Cleaning Process"]
+    C --> D["Data Asset v2"]
+    B --> E["Training Job 1"]
+    D --> F["Training Job 2"]
+    E --> G["Model 1"]
+    F --> H["Model 2"]
+    G --> I["Evaluation"]
+    H --> I
