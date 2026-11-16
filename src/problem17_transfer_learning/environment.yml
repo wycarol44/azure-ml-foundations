@@ -1,0 +1,14 @@
+name: transfer-learning-env
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - tensorflow==2.15.1
+      - numpy<2
+      - matplotlib
+      - azure-ai-ml
+      - azure-identity
