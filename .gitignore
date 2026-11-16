@@ -46,3 +46,5 @@ models/
 
 # Azure ML
 .azureml/
+.DS_Store
+src/problem15-rnn-lstm/data/imdb_sequences.npz
