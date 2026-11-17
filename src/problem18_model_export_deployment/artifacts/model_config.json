@@ -1,0 +1,10 @@
+{
+    "model_name": "MobileNetV2_CatsVsDogs",
+    "framework": "TensorFlow",
+    "input_size": [160, 160],
+    "color_mode": "RGB",
+    "preprocessing": "mobilenet_v2.preprocess_input",
+    "class_names": ["cat", "dog"],
+    "output_type": "binary_probability",
+    "threshold": 0.5
+}
