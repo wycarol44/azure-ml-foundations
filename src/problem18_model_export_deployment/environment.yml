@@ -1,0 +1,15 @@
+name: problem18-inference
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - pip
+
+  - pip:
+      - tensorflow==2.15.1
+      - numpy<2
+      - pillow
+      - azure-ai-ml
+      - azure-identity
